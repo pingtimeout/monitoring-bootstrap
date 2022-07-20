@@ -1,0 +1,20 @@
+global:
+  resolve_timeout: 1m
+
+route:
+ group_by: ['...']
+ receiver: slack
+
+receivers:
+- name: slack
+  slack_configs:
+  - api_url: https://hooks.slack.com/services/FOO/BAR
+    channel: pierre
+    icon_emoji: ":rotating_light:"
+    title_link: "http://127.0.0.1:9090/alerts"
+    send_resolved: true
+    title: '{{ template "custom_title" . }}'
+    text: '{{ template "custom_slack_message" . }}'
+
+templates:
+  - '/etc/alertmanager/templates/default.tmpl'
