@@ -1,0 +1,5 @@
+= Monitoring bootstrap
+
+Based on the work from https://medium.com/ouidou/un-monitoring-complet-en-quelques-minutes-avec-prometheus-33e849e6392e.
+
+Grafana login/password: `admin/password`.
