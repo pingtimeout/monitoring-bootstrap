@@ -1,19 +1,12 @@
 {
   "__inputs": [
     {
-      "name": "DS_PROMETHEUS",
-      "label": "prometheus",
-      "description": "",
+      "name": "Prometheus",
+      "label": "Prometheus",
+      "description": "default dashboard for node exporter full",
       "type": "datasource",
       "pluginId": "prometheus",
       "pluginName": "Prometheus"
-    },
-    {
-      "name": "VAR_JOB",
-      "type": "constant",
-      "label": "job",
-      "value": "java",
-      "description": "job name"
     }
   ],
   "__requires": [
@@ -72,7 +65,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "format": "percentunit",
       "gauge": {
         "maxValue": 100,
@@ -152,7 +145,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": null,
       "format": "dateTimeAsIso",
       "gauge": {
@@ -234,7 +227,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 0,
       "format": "s",
       "gauge": {
@@ -315,7 +308,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 0,
       "format": "none",
       "gauge": {
@@ -394,7 +387,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "fill": 1,
       "gridPos": {
         "h": 10,
@@ -489,7 +482,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "fill": 1,
       "gridPos": {
         "h": 10,
@@ -577,7 +570,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "fill": 1,
       "gridPos": {
         "h": 8,
@@ -614,7 +607,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "jvm_memory_pool_bytes_max{pool=\"PS Eden Space\",job=\"$job\",instance=\"$instance\"}",
+          "expr": "jvm_memory_pool_bytes_max{pool=~\".* Eden .*\",job=\"$job\",instance=\"$instance\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 5,
@@ -624,7 +617,7 @@
           "step": 5
         },
         {
-          "expr": "jvm_memory_pool_bytes_used{pool=\"PS Eden Space\",job=\"$job\",instance=\"$instance\"}",
+          "expr": "jvm_memory_pool_bytes_used{pool=~\".* Eden .*\",job=\"$job\",instance=\"$instance\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 5,
@@ -634,7 +627,7 @@
           "step": 5
         },
         {
-          "expr": "jvm_memory_pool_bytes_committed{pool=\"PS Eden Space\",job=\"$job\",instance=\"$instance\"}",
+          "expr": "jvm_memory_pool_bytes_committed{pool=~\".* Eden .*\",job=\"$job\",instance=\"$instance\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 5,
@@ -647,7 +640,7 @@
       "thresholds": [],
       "timeFrom": null,
       "timeShift": null,
-      "title": "PS Eden Space",
+      "title": "Eden Space",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -689,7 +682,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "fill": 1,
       "gridPos": {
         "h": 8,
@@ -725,7 +718,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "jvm_memory_pool_bytes_max{pool=\"PS Old Gen\",job=\"$job\",instance=\"$instance\"}",
+          "expr": "jvm_memory_pool_bytes_max{pool=~\".* Old .*\",job=\"$job\",instance=\"$instance\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 5,
@@ -735,7 +728,7 @@
           "step": 5
         },
         {
-          "expr": "jvm_memory_pool_bytes_used{pool=\"PS Old Gen\",job=\"$job\",instance=\"$instance\"}",
+          "expr": "jvm_memory_pool_bytes_used{pool=~\".* Old .*\",job=\"$job\",instance=\"$instance\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 5,
@@ -745,7 +738,7 @@
           "step": 5
         },
         {
-          "expr": "jvm_memory_pool_bytes_committed{pool=\"PS Old Gen\",job=\"$job\",instance=\"$instance\"}",
+          "expr": "jvm_memory_pool_bytes_committed{pool=~\".* Old .*\",job=\"$job\",instance=\"$instance\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 5,
@@ -758,7 +751,7 @@
       "thresholds": [],
       "timeFrom": null,
       "timeShift": null,
-      "title": "PS Old Gen",
+      "title": "Old Gen",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -800,7 +793,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "fill": 1,
       "gridPos": {
         "h": 8,
@@ -836,7 +829,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "jvm_memory_pool_bytes_max{pool=\"PS Survivor Space\",job=\"$job\",instance=\"$instance\"}",
+          "expr": "jvm_memory_pool_bytes_max{pool=~\".* Survivor .*\",job=\"$job\",instance=\"$instance\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 5,
@@ -846,7 +839,7 @@
           "step": 5
         },
         {
-          "expr": "jvm_memory_pool_bytes_used{pool=\"PS Survivor Space\",job=\"$job\",instance=\"$instance\"}",
+          "expr": "jvm_memory_pool_bytes_used{pool=~\".* Survivor .*\",job=\"$job\",instance=\"$instance\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 5,
@@ -856,7 +849,7 @@
           "step": 5
         },
         {
-          "expr": "jvm_memory_pool_bytes_committed{pool=\"PS Survivor Space\",job=\"$job\",instance=\"$instance\"}",
+          "expr": "jvm_memory_pool_bytes_committed{pool=~\".* Survivor .*\",job=\"$job\",instance=\"$instance\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 5,
@@ -869,7 +862,7 @@
       "thresholds": [],
       "timeFrom": null,
       "timeShift": null,
-      "title": "PS Survivor Space",
+      "title": "Survivor Space",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -911,7 +904,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "fill": 1,
       "gridPos": {
         "h": 8,
@@ -1022,7 +1015,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "fill": 1,
       "gridPos": {
         "h": 8,
@@ -1133,7 +1126,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "fill": 1,
       "gridPos": {
         "h": 8,
@@ -1244,13 +1237,13 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "fill": 1,
       "gridPos": {
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 30
+        "y": 38
       },
       "id": 3,
       "legend": {
@@ -1349,7 +1342,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "fill": 1,
       "gridPos": {
         "h": 8,
@@ -1438,13 +1431,13 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "fill": 1,
       "gridPos": {
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 38
+        "y": 30
       },
       "id": 5,
       "legend": {
@@ -1527,7 +1520,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "fill": 1,
       "gridPos": {
         "h": 8,
@@ -1560,7 +1553,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "jvm_classes_loaded{job=\"$job\", instance=\"$instance\"}",
+          "expr": "jvm_classes_currently_loaded{job=\"$job\", instance=\"$instance\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 5,
@@ -1573,7 +1566,7 @@
       "thresholds": [],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Class loading",
+      "title": "Class currently loaded",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -1621,38 +1614,39 @@
   "templating": {
     "list": [
       {
-        "current": {
-          "value": "${VAR_JOB}",
-          "text": "${VAR_JOB}"
-        },
+        "allValue": null,
+        "current": {},
+        "datasource": "Prometheus",
         "hide": 0,
-        "label": "job",
+        "includeAll": false,
+        "label": "Job",
+        "multi": false,
         "name": "job",
-        "options": [
-          {
-            "value": "${VAR_JOB}",
-            "text": "${VAR_JOB}"
-          }
-        ],
-        "query": "${VAR_JOB}",
-        "skipUrlSync": false,
-        "type": "constant"
+        "options": [],
+        "query": "label_values(jvm_info, job)",
+        "refresh": 1,
+        "regex": "",
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
       },
       {
         "allValue": null,
         "current": {},
-        "datasource": "${DS_PROMETHEUS}",
+        "datasource": "Prometheus",
         "hide": 0,
         "includeAll": false,
-        "label": "instance",
+        "label": "Instance",
         "multi": false,
         "name": "instance",
         "options": [],
-        "query": "label_values(jvm_info{job=\"$job\"},instance)",
+        "query": "label_values(jvm_info{job=~\"$job\"}, instance)",
         "refresh": 1,
         "regex": "",
-        "skipUrlSync": false,
-        "sort": 0,
+        "sort": 1,
         "tagValuesQuery": "",
         "tags": [],
         "tagsQuery": "",
