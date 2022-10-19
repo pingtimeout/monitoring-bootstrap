@@ -8,6 +8,7 @@ services:
       - ./prometheus/data:/prometheus/data
       - ./prometheus/config:/etc/prometheus
     command:
+      - '--web.enable-admin-api'
       - '--storage.tsdb.retention.time=7d'
       - '--config.file=/etc/prometheus/prometheus.yml'
     ports:
