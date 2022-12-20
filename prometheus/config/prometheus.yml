@@ -1,3 +1,4 @@
+---
 global:
   scrape_interval: 5s
   evaluation_interval: 60s
@@ -14,6 +15,6 @@ rule_files:
   - "/etc/prometheus/alerts.yml"
 
 scrape_configs:
-  - job_name: 'node_exporter_test'
+  - job_name: 'metrics_collection'
     static_configs:
       - targets: ['nodeexporter:9100']
