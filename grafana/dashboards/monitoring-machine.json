@@ -20027,7 +20027,7 @@
       "30d"
     ]
   },
-  "timezone": "browser",
+  "timezone": "utc",
   "title": "Node Exporter Full",
   "version": 64
 }

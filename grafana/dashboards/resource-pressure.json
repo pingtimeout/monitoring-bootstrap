@@ -1155,7 +1155,7 @@
     "to": "now"
   },
   "timepicker": {},
-  "timezone": "",
+  "timezone": "utc",
   "title": "Resource pressure",
   "uid": "huIlO2S4k",
   "version": 4,

@@ -1684,7 +1684,7 @@
       "30d"
     ]
   },
-  "timezone": "",
+  "timezone": "utc",
   "title": "JVM Exporter dashboard",
   "uid": "jvm",
   "version": 6
