@@ -1092,7 +1092,7 @@
         "multi": false,
         "name": "node",
         "options": [],
-        "query": "label_values(node_uname_info{nodename=\"$name\"}, instance)",
+        "query": "label_values(node_uname_info{job=\"$job\"}, instance)",
         "refresh": 2,
         "regex": "/([^:]+):.*/",
         "sort": 1,
